@@ -1,0 +1,38 @@
+<div class="matieres">
+    <div class="container-narrow">
+
+        <div>
+            <ul class="nav nav-pills pull-right">
+                <li id = "menu1" class="active"><a [routerLink]="['/addmatiere']"><button type="button" class="btn btn-outline-primary add">Add</button></a></li>
+              </ul>
+        </div>
+
+        <div class="panel panel-primary panel-input">
+            <div class="panel-heading title">Matières</div>
+            <div class="panel-body">
+
+
+                <div class="alert alert-success alert-dismissible" id="msg" style="display:none;"></div>
+                <div class="panel panel-success " *ngFor="let M of matieres">
+                    <div class="panel-heading cls">
+                        <div class="col-md-10">
+                        Matière: {{M.nom_matiere}} <br/>
+                        Enseignant: {{M.enseignant}} <br/>
+                        Classe: {{M.classe}} 
+                        
+                        </div>
+                        <div class="col-md-2" >
+                            <button class="btn btn-primary" routerLink="/editmatiere/{{M.nom_matiere}}" ><span class="glyphicon glyphicon-pencil"></span></button>
+                            <button class="btn btn-danger" (click)="deleteMatiere(M.nom_matiere)"><span class="glyphicon glyphicon-trash"></span></button>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+ 
+    </div>
+ </div>
+ 
+ 
+ 

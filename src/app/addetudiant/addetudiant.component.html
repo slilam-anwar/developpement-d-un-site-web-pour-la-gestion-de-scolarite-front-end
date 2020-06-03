@@ -1,0 +1,67 @@
+<div class="addetudiant">
+    <div class="container-narrow">
+ 
+       <div class="panel panel-primary panel-input">
+           <div class="panel-heading title">Add Etudiant</div>
+           <div class="panel-body">
+               <form class="form-horizontal" #addetudiantForm="ngForm" (submit)="addEtudiant()">
+                   <div class="col-md-8">
+                    <div class="form-group">
+                        <label for="cne" class="col-sm-4 control-label">CNE :</label>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control" name="cne" required maxlength="30" [(ngModel)]="model.cne" #cne="ngModel" >
+                            <div *ngIf="cne.errors && (cne.dirty || cne.touched)" class="alert alert-danger">
+                                 <div [hidden]="!cne.errors.required">
+                                     <span class="glyphicon glyphicon-exclamation-sign"></span>&nbsp;Ce champ est obligatoire
+                                 </div>
+                             </div>
+                        </div>
+                       </div>
+                       <div class="form-group">
+                           <label for="nom" class="col-sm-4 control-label">Nom :</label>
+                           <div class="col-sm-8">
+                               <input type="text" class="form-control" name="nom" required maxlength="30" [(ngModel)]="model.nom" #nom="ngModel" >
+                               <div *ngIf="nom.errors && (nom.dirty || nom.touched)" class="alert alert-danger">
+                                    <div [hidden]="!nom.errors.required">
+                                        <span class="glyphicon glyphicon-exclamation-sign"></span>&nbsp;Ce champ est obligatoire
+                                    </div>
+                                </div>
+                           </div>
+                       </div>
+                       <div class="form-group">
+                            <label for="prenom" class="col-sm-4 control-label">Prénom :</label>
+                            <div class="col-sm-8">
+                                <input type="text" class="form-control" name="prenom" required maxlength="30" [(ngModel)]="model.prenom" #prenom="ngModel">
+                                <div *ngIf="prenom.errors && (prenom.dirty || prenom.touched)" class="alert alert-danger">
+                                        <div [hidden]="!prenom.errors.required">
+                                            <span class="glyphicon glyphicon-exclamation-sign"></span>&nbsp;Ce champ est obligatoire
+                                        </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="classe" class="col-sm-4 control-label">Classe :</label>
+                            <div class="col-sm-8">
+                                <select id="classe" class="form-control" name="classe" [(ngModel)]="model.classe" #classe="ngModel">
+                                    <option  *ngFor="let C of classes">{{C.Nom_classe}}</option>
+                                  </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                                <div class="col-sm-offset-4 col-sm-8">
+                                        <button type="submit" class="btn btn-success" [disabled]="!addetudiantForm.form.valid">SAVE</button>
+                                        <a class="btn btn-info cancel" (click)="goBack()">CANCEL</a>
+                                        <div class="alert alert-success alert-dismissible" id="msg1" style="display:none;"></div>
+                                </div>
+                        </div>
+                   </div>
+
+               </form>
+
+           </div>
+        </div>
+ 
+    </div>
+ </div>
+
+

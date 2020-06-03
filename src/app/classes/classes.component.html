@@ -1,0 +1,39 @@
+<div class="classes">
+    <div class="container-narrow">
+
+        <div>
+            <ul class="nav nav-pills pull-right">
+                <li id = "menu1" class="active"><a [routerLink]="['/addclasse']"> <button type="button" class="btn btn-outline-primary add">Add</button></a></li>
+              </ul>
+        </div>
+
+        <div class="panel panel-primary panel-input">
+            <div class="panel-heading title">Classes</div>
+            <div class="panel-body">
+
+
+                <div class="alert alert-success alert-dismissible" id="msg" style="display:none;"></div>
+                <div class="panel panel-success" *ngFor="let C of classes">
+                    <div class="panel-heading">
+                        <div class="col-md-7">
+                        Classe: {{C.Nom_classe}} <br/>
+                        Nombre d'Etudiants: {{C.Nb_etud}}
+                        </div>
+                        <div class="col-md-5" >
+                            <button type="button" class="btn btn-success" routerLink="/emploi-classe/{{C.Nom_classe}}">Emploi du temps</button>
+                            <button type="button" class="btn btn-success" routerLink="/classe-matieres/{{C.Nom_classe}}">Matières</button>
+                            <button type="button" class="btn btn-success btnn" routerLink="/classe-etudiants/{{C.Nom_classe}}">Etudiants</button>
+                   <!--     <button class="btn btn-primary" routerLink="/editclasse/{{C.Nom_classe}}"><span class="glyphicon glyphicon-pencil"></span></button>    --> 
+                            <button class="btn btn-danger" (click)="deleteClasse(C.Nom_classe)"><span class="glyphicon glyphicon-trash"></span></button>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+ 
+    </div>
+ </div>
+ 
+ 
+ 

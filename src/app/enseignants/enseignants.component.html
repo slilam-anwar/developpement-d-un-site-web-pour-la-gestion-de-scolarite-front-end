@@ -1,0 +1,38 @@
+<div class="enseignants">
+    <div class="container-narrow">
+
+        <div>
+            <ul class="nav nav-pills pull-right">
+                <li id = "menu1" class="active"><a [routerLink]="['/addenseignant']"><button type="button" class="btn btn-outline-primary add">Add</button></a></li>
+              </ul>
+        </div>
+
+        <div class="panel panel-primary panel-input">
+            <div class="panel-heading title">Enseignants</div>
+            <div class="panel-body">
+
+
+                <div class="alert alert-success alert-dismissible" id="msg" style="display:none;"></div>
+                <div class="panel panel-success " *ngFor="let E of enseignants">
+                    <div class="panel-heading cls">
+                        <div class="col-md-8">
+                        Nom et Prénom: {{E.nom}} {{E.prenom}} <br/>
+                        Département: {{E.departement}} 
+                        </div>
+                        <div class="col-md-4" >
+                            <button type="button" class="btn btn-success" routerLink="/emploi-enseignant/{{E.nom}}">Emploi du temps</button>
+                            <button type="button" class="btn btn-success btnn" routerLink="/enseignant-matieres/{{E.nom}}">Matières</button>
+                            <button class="btn btn-primary" routerLink="/editenseignant/{{E.nom}}"><span class="glyphicon glyphicon-pencil"></span></button>
+                            <button class="btn btn-danger" (click)="deleteEnseignant(E.nom)"><span class="glyphicon glyphicon-trash"></span></button>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+ 
+    </div>
+ </div>
+ 
+ 
+ 

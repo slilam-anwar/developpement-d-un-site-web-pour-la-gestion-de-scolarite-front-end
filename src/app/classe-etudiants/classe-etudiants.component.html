@@ -1,0 +1,32 @@
+<div class="classe-etudiants">
+    <div class="container-narrow">
+
+        <div>
+            <ul class="nav nav-pills pull-right">
+                <li id = "menu1" class="active"><a [routerLink]="['/classes']"><button type="button" class="btn btn-outline-primary add">Cancel</button></a></li>
+              </ul>
+        </div>
+
+        <div class="panel panel-primary panel-input">
+            <div class="panel-heading title">Les etudiants de {{id_classe}}</div>
+            <div class="panel-body"> 
+
+
+                <div class="alert alert-success alert-dismissible" id="msg" style="display:none;"></div>
+                <div class="panel panel-success " *ngFor="let E of classesetudiants">
+                    <div class="panel-heading cls">
+                        <div class="col-md-10">
+                        CNE : {{E.cne}} <br/>
+                        Nom et Prénom : {{E.nom}} {{E.prenom}}
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+ 
+    </div>
+ </div>
+ 
+ 
+ 

@@ -1,0 +1,51 @@
+<div class="home">
+    <div class="container-narrow">
+ 
+       <div class="panel panel-primary panel-input">
+           <div class="panel-heading title">Authentification</div>
+           <div class="panel-body">
+               
+                            <form  #addAuthForm="ngForm" (submit)="connexion()">
+                                    <div class="form-group">
+                                        <label for="status"  class="col-sm-4 control-label">You are:   </label>
+                                        <div class="col-sm-8">
+                                            <select id="status" class="form-control" name="status">
+                                                <option>Admin</option>
+                                                <option>Enseignant</option>
+                                                <option>Etudiant</option>
+                                              </select>
+                                        </div>
+                                            <label for="fullname" class="col-sm-4 control-label">FullName :</label>
+                                            <div class="col-sm-8">
+                                                <input type="text" class="form-control" name="fullname" required maxlength="30" [(ngModel)]="model.fullname" #fullname="ngModel">
+                                                <div *ngIf="fullname.errors && (fullname.dirty || fullname.touched)" class="alert alert-danger">
+                                                    <div [hidden]="!fullname.errors.required">
+                                                        <span class="glyphicon glyphicon-exclamation-sign"></span>&nbsp;FullName  is required
+                                                    </div>
+                                            </div>
+                                            </div>
+                                            <label for="password" class="col-sm-4 control-label">Password :</label>
+                                            <div class="col-sm-8">
+                                                <input type="password" class="form-control" name="password" required maxlength="30" minlength="6" [(ngModel)]="model.password" #password="ngModel" >
+                                                <div *ngIf="password.errors && (password.dirty || password.touched)" class="alert alert-danger">
+                                                    <div [hidden]="!password.errors.required">
+                                                        <span class="glyphicon glyphicon-exclamation-sign"></span>&nbsp;Password is required
+                                                    </div>
+                                            </div>
+                                            </div>
+                                     </div>
+                                     <div class="form-group">
+                                            <div class="col-sm-offset-4 col-sm-8">
+                                                    <button type="submit" class="btn btn-success" [disabled]="!addAuthForm.form.valid">CONNECTER</button>
+                                            </div>
+                                    </div>
+                            </form>
+
+        </div>
+      </div>
+    </div>
+ </div>
+
+
+
+

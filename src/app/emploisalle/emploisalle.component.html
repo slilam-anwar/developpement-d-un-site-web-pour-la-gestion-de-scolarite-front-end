@@ -1,0 +1,58 @@
+<div class="emploi-salle"> 
+        
+    <div class="container-narrow">
+
+        <div>
+            <ul class="nav nav-pills pull-right">
+                <li id = "menuHome" class="active"><a [routerLink]="['/salles']"><button type="button" class="btn btn-outline-primary add">Cancel</button></a></li>
+              </ul>
+        </div>
+
+ 
+       <div class="panel panel-primary panel-input">
+           <div class="panel-heading title">L'emploi du temps de la salle {{id_emploi}}</div>
+           <div class="panel-body">
+               <table class="table table-hover table-dark tb">
+                <thead>
+                   <tr class="horaires" scope="col">
+                       <th class="hor1" scope="col"><div class="text-center txt">  </div></th>
+                       <th scope="col"> <div class="text-center txt" >9:00 - 10:30</div> </th>
+                       <th scope="col"> <div class="text-center txt">10:45 - 12:15</div> </th>
+                       <th scope="col"> <div class="text-center txt pause">  </div> </th>
+                       <th scope="col"> <div class="text-center txt">13:30 - 15:00</div> </th>
+                       <th scope="col"> <div class="text-center txt">15:15 - 16:45</div> </th>
+                   </tr>
+                </thead>
+                <tbody>
+                   <tr *ngFor='let emp of emploisalle'>
+                       <th class="horaires" scope="row">   <div class="text-center txt jour"> {{emp[0]}}  </div>   </th>
+                       <td class="td"> 
+                        <div class="text-center txt">{{emp[1]}}</div>
+                        <div class="text-center txt">{{emp[2]}}</div>
+                        <div class="text-center txt">{{emp[3]}}</div>
+                       </td>
+                       <td class="td">
+                        <div class="text-center txt">{{emp[4]}}</div>
+                        <div class="text-center txt">{{emp[5]}}</div>
+                        <div class="text-center txt">{{emp[6]}}</div>
+                       </td>
+                       <td>                  </td>
+                       <td class="td">
+                        <div class="text-center txt">{{emp[7]}}</div>
+                        <div class="text-center txt">{{emp[8]}}</div>
+                        <div class="text-center txt">{{emp[9]}}</div>
+                       </td>
+                       <td class="td"> 
+                        <div class="text-center txt">{{emp[10]}}</div>
+                        <div class="text-center txt">{{emp[11]}}</div>
+                        <div class="text-center txt">{{emp[12]}}</div>
+                       </td>
+                   </tr>
+                </tbody>
+                </table>
+         </div>
+        </div>
+    </div>
+ </div>
+
+

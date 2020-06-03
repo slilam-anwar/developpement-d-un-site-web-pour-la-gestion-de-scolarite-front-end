@@ -1,0 +1,37 @@
+<div class="editclasse">
+    <div class="container-narrow">
+ 
+       <div class="panel panel-primary panel-input">
+           <div class="panel-heading title">Edit Classe {{id_classe}}</div>
+           <div class="panel-body">
+               <form class="form-horizontal" #editclasseForm="ngForm" (submit)="updateClasse()">
+                   <div class="col-md-8">
+                       <div class="form-group">
+                            <label for="Nb_etud" class="col-sm-4 control-label">Nombre d'étudiants :</label>
+                            <div class="col-sm-8">
+                                <input type="number" class="form-control" name="Nb_etud" required max="50" min="0" [(ngModel)]="classe.Nb_etud" #Nb_etud="ngModel">
+                                <div *ngIf="Nb_etud.errors && (Nb_etud.dirty || Nb_etud.touched)" class="alert alert-danger">
+                                        <div [hidden]="!Nb_etud.errors.required">
+                                            <span class="glyphicon glyphicon-exclamation-sign"></span>&nbsp;Ce champ est obligatoire
+                                        </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                                <div class="col-sm-offset-4 col-sm-8">
+                                        <button type="submit" class="btn btn-success" [disabled]="!editclasseForm.form.valid">UPDATE</button>
+                                        <a class="btn btn-info cancel" (click)="goBack()">CANCEL</a>
+                                        <div class="alert alert-success alert-dismissible" id="msg" style="display:none;"></div>
+                                </div>
+                        </div>
+                   </div>
+
+               </form>
+
+           </div>
+        </div>
+ 
+    </div>
+ </div>
+
+

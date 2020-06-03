@@ -1,0 +1,58 @@
+<div class="addenseignant">
+    <div class="container-narrow">
+ 
+       <div class="panel panel-primary panel-input">
+           <div class="panel-heading title">Add Enseignant</div>
+           <div class="panel-body">
+               <form class="form-horizontal" #addenseignantForm="ngForm" (submit)="addEnseignant()">
+                   <div class="col-md-8">
+                       <div class="form-group">
+                           <label for="nom" class="col-sm-4 control-label">Nom :</label>
+                           <div class="col-sm-8">
+                               <input type="text" class="form-control" name="nom" required maxlength="30" [(ngModel)]="model.nom" #nom="ngModel" >
+                               <div *ngIf="nom.errors && (nom.dirty || nom.touched)" class="alert alert-danger">
+                                    <div [hidden]="!nom.errors.required">
+                                        <span class="glyphicon glyphicon-exclamation-sign"></span>&nbsp;Ce champ est obligatoire
+                                    </div>
+                                </div>
+                           </div>
+                       </div>
+                       <div class="form-group">
+                            <label for="prenom" class="col-sm-4 control-label">Prénom :</label>
+                            <div class="col-sm-8">
+                                <input type="text" class="form-control" name="prenom" required maxlength="30" [(ngModel)]="model.prenom" #prenom="ngModel">
+                                <div *ngIf="prenom.errors && (prenom.dirty || prenom.touched)" class="alert alert-danger">
+                                        <div [hidden]="!prenom.errors.required">
+                                            <span class="glyphicon glyphicon-exclamation-sign"></span>&nbsp;Ce champ est obligatoire
+                                        </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="departement" class="col-sm-4 control-label">Département :</label>
+                            <div class="col-sm-8">
+                                <select id="enseignant" class="form-control" name="departement" [(ngModel)]="model.departement" #departement="ngModel">
+                                    <option>SIC</option>
+                                    <option>GEI</option>
+                                    <option>MI</option>
+                                  </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                                <div class="col-sm-offset-4 col-sm-8">
+                                        <button type="submit" class="btn btn-success" [disabled]="!addenseignantForm.form.valid">SAVE</button>
+                                        <a class="btn btn-info cancel" (click)="goBack()">CANCEL</a>
+                                        <div class="alert alert-success alert-dismissible" id="msg1" style="display:none;"></div>
+                                </div>
+                        </div>
+                   </div>
+
+               </form>
+
+           </div>
+        </div>
+ 
+    </div>
+ </div>
+
+
